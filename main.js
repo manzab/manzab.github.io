@@ -36,7 +36,7 @@ for (i = 0; i < data.length; i++) {
     temperament.innerHTML = data[i].breeds[0].temperament;
     temperament.style.display = 'none';
     contentStoring.appendChild(temperament);
-    var notFound = document.createElement('h1');
+//     var notFound = document.createElement('h1');
 //     notFound.innerText = 'NOT FOUND ANY DOGS';
 //     notFound.style.display = 'none';
 //     resultsStore.appendChild(notFound);
