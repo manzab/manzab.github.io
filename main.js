@@ -37,9 +37,9 @@ for (i = 0; i < data.length; i++) {
     temperament.style.display = 'none';
     contentStoring.appendChild(temperament);
     var notFound = document.createElement('h1');
-    notFound.innerText = 'NOT FOUND ANY DOGS';
-    notFound.style.display = 'none';
-    resultsStore.appendChild(notFound);
+//     notFound.innerText = 'NOT FOUND ANY DOGS';
+//     notFound.style.display = 'none';
+//     resultsStore.appendChild(notFound);
 }
 // targeting all created cards
 var allCards = document.querySelectorAll('.card')
@@ -51,7 +51,7 @@ var returnedFunction = debounce(function () {
         }
         else if (!allCards[j].innerText.toLowerCase().includes(search.value.toLowerCase())) {
             allCards[j].style.display = 'none';
-            notFound.style.display = '';
+//             notFound.style.display = '';
         }
         else if (search.value.toLowerCase()==='') {console.log('kas vyksta')}
     }
