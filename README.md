@@ -10,7 +10,7 @@ Create a search and filter system based on data from external js file with HTML,
 
 ## Launch 
 
-Open [manzab.github.io](manzab.github.io) on your browser.
+Open [manzab.github.io](https://manzab.github.io) on your browser.
 
 ## Screenshots:
 
