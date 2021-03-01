@@ -36,28 +36,41 @@ for (i = 0; i < data.length; i++) {
     temperament.innerHTML = data[i].breeds[0].temperament;
     temperament.style.display = 'none';
     contentStoring.appendChild(temperament);
-//     var notFound = document.createElement('h1');
-//     notFound.innerText = 'NOT FOUND ANY DOGS';
-//     notFound.style.display = 'none';
-//     resultsStore.appendChild(notFound);
+    var notFound = document.createElement('div');
+    document.body.appendChild(notFound);
 }
 // targeting all created cards
 var allCards = document.querySelectorAll('.card')
 // Search function by names with debounce
 var returnedFunction = debounce(function () {
+    let counter = 0;
     for (j = 0; j < data.length; j++) {
-        if (allCards[j].innerText.toLowerCase().includes(search.value.toLowerCase())) {
+        if (allCards[j].innerText.toLowerCase().includes(search.value.toLowerCase()) || (search.value.toLowerCase() == '')) {
             allCards[j].style.display = '';
+            if(document.querySelector('h1')) {
+                let header = document.querySelector('h1');
+                header.remove();
+            }
         }
         else if (!allCards[j].innerText.toLowerCase().includes(search.value.toLowerCase())) {
             allCards[j].style.display = 'none';
-//             notFound.style.display = '';
+            counter++;
+            console.log('Counter is ' + counter);
+            console.log('Data is ' + data.length);
+            if (counter == data.length) {
+                if (!document.querySelector('h1')) {
+                    let header = document.createElement('h1');
+                    header.innerText = 'Dogs were not found';
+                    document.body.appendChild(header);
+                }
+            }
         }
-        else if (search.value.toLowerCase()==='') {console.log('kas vyksta')}
     }
+    counter = 0;
 }, 800);
+
 // Filter function by temperament
-var newReturnFunction = debounce(function() {
+var newReturnFunction = debounce(function () {
     for (j = 0; j < data.length; j++) {
         if (allCards[j].innerHTML.includes(filter.value)) {
             allCards[j].style.display = '';
@@ -67,6 +80,7 @@ var newReturnFunction = debounce(function() {
         }
     }
 }, 400)
+
 // search and filter events
 search.addEventListener('input', returnedFunction)
 filter.addEventListener('change', newReturnFunction)

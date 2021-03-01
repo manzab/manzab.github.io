@@ -27,6 +27,9 @@ input, select {
 input {
   width: 300px;
 }
+input:focus {
+  outline: 0;
+}
 
 .inputs {
   padding: 20px 0 30px;
@@ -100,9 +103,7 @@ input {
 
 h1 {
   text-align: center;
-  width: 100%;
-  margin-top: 140px;
-  transform: translate(10px, 324px);
+  transform: translate(0px, 200px);
   font-size: 48px;
 }
 /*# sourceMappingURL=main.css.map */
